@@ -43,12 +43,12 @@ public class Employee {
     public boolean equals(Object otherEmployee) {
         if (otherEmployee == null || getClass() != otherEmployee.getClass()) return false;
         Employee employee = (Employee) otherEmployee;
-        return Objects.equals(fullName, employee.fullName);
+        return id == employee.id && departmentNumber == employee.departmentNumber && salary == employee.salary && Objects.equals(fullName, employee.fullName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(fullName);
+        return Objects.hash(id, fullName, departmentNumber, salary);
     }
 
     @Override
